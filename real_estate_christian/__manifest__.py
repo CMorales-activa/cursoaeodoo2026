@@ -1,0 +1,17 @@
+{
+    'name': 'Real Estate Christian',
+    'version': '1.0',
+    'summary': 'Modulo de practica de inmobiliaria',
+    'description': 'Gestion de propiedades inmobiliarias.',
+    'author': 'Christian',
+    'category': 'Real Estate',
+    'license': 'LGPL-3',
+    'depends': ['base'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/real_estate_property_views.xml',
+        'views/real_estate_menu_items.xml',
+    ],
+    'application': True,
+    'installable': True,
+}

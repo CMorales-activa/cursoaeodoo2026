@@ -2,4 +2,5 @@
 <odoo>
     <menuitem id="real_estate_menu_root" name="Real Estate"/>
     <menuitem id="real_estate_menu_properties" name="Properties" parent="real_estate_menu_root" action="real_estate_property_action"/>
+    <menuitem id="real_estate_menu_visits" name="Visits" parent="real_estate_menu_root" action="real_estate_visit_action"/>
 </odoo>

@@ -1,3 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_real_estate_property,real.estate.property,model_real_estate_property,base.group_user,1,1,1,1
-access_real_estate_visit,real.estate.visit,model_real_estate_visit,base.group_user,1,1,1,1
+access_real_estate_property_user,real.estate.property_user,model_real_estate_property,base.group_user,1,1,1,0
+access_real_estate_property_manager,real.estate.property_manager,model_real_estate_property,group_real_estate_manager,1,1,1,1
+access_real_estate_visit_user,real.estate.visit_user,model_real_estate_visit,base.group_user,1,1,1,0
+access_real_estate_visit_manager,real.estate.visit_manager,model_real_estate_visit,group_real_estate_manager,1,1,1,1
+access_real_estate_category_user,real.estate.category_user,model_real_estate_category,base.group_user,1,1,1,0
+access_real_estate_category_manager,real.estate.category_manager,model_real_estate_category,group_real_estate_manager,1,1,1,1
+access_real_estate_offer_user,real.estate.offer_user,model_real_estate_offer,base.group_user,1,1,1,0
+access_real_estate_offer_manager,real.estate.offer_manager,model_real_estate_offer,group_real_estate_manager,1,1,1,1
+access_real_estate_contract_user,real.estate.contract_user,model_real_estate_contract,base.group_user,1,1,1,0
+access_real_estate_contract_manager,real.estate.contract_manager,model_real_estate_contract,group_real_estate_manager,1,1,1,1

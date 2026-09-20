@@ -18,12 +18,22 @@
         <field name="model">real.estate.visit</field>
         <field name="arch" type="xml">
             <form>
+            <header>
+                <button name="action_new" string="New visit" invisible="state not in ('done', 'cancelled')" type="object" class="btn-primary"/>
+                <button name="action_done" string="Visit done" invisible="state != 'planned'" type="object" class="btn-primary"/>
+                <button name="action_plan" string="Visit planned" invisible="state != 'planned'" type="object" class="btn-primary"/>
+                <button name="action_cancel" string="Visit cancelled" invisible="state in ('cancelled', 'done')" type="object" class="btn-primary"/>
+                <field name="state" options="{'clickable': True}" widget="statusbar"/>
+            </header>
                 <sheet>
+                    <widget name="web_ribbon" title="Cancelled" invisible="state != 'cancelled'" bg_color="text_bg_danger"/>
                     <group>
                         <field name="property_id"/>
+                        <field name="user_id"/>
+                    </group>
+                    <group>    
                         <field name="date"/>
                         <field name="contact_id"/>
-                        <field name="state"/>
                     </group>
                 </sheet>
             </form>

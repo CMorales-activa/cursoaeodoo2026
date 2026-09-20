@@ -8,9 +8,13 @@
     'license': 'LGPL-3',
     'depends': ['base'],
     'data': [
+        'security/real_estate_security.xml',
         'security/ir.model.access.csv',
         'views/real_estate_property_views.xml',
         'views/real_estate_visit_views.xml',
+        'views/real_estate_category_views.xml',
+        'views/real_estate_offer_views.xml',
+        'views/real_estate_contract_views.xml',
         'views/real_estate_menu_items.xml',
     ],
     'application': True,

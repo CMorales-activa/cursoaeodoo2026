@@ -1,0 +1,427 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_estate_christian
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-20 16:46+0000\n"
+"PO-Revision-Date: 2026-09-20 16:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: real_estate_christian
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_offer__state__accepted
+msgid "Accepted"
+msgstr "Aceptada"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_contract_view_form
+msgid "Activate"
+msgstr "Activar"
+
+#. module: real_estate_christian
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_contract__state__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__amount
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_offer__amount
+msgid "Amount"
+msgstr "Importe"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__availability
+msgid "Availability"
+msgstr "Disponibilidad"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_offer__buyer_id
+msgid "Buyer"
+msgstr "Comprador"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_contract_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: real_estate_christian
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_contract__state__canceled
+msgid "Canceled"
+msgstr "Cancelado"
+
+#. module: real_estate_christian
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_visit__state__cancelled
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_view_form
+msgid "Cancelled"
+msgstr "Cancelada"
+
+#. module: real_estate_christian
+#: model:ir.actions.act_window,name:real_estate_christian.real_estate_category_action
+#: model:ir.ui.menu,name:real_estate_christian.real_estate_menu_categories
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_category_list_view
+msgid "Categories"
+msgstr "Categorías"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__category_id
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_category_form_view
+msgid "Category"
+msgstr "Categoría"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__contact_id
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: real_estate_christian
+#: model:ir.actions.act_window,name:real_estate_christian.real_estate_contract_action
+#: model:ir.ui.menu,name:real_estate_christian.real_estate_menu_contracts
+msgid "Contracts"
+msgstr "Contratos"
+
+#. module: real_estate_christian
+#: model_terms:ir.actions.act_window,help:real_estate_christian.real_estate_category_action
+msgid "Create a new category"
+msgstr "Crear una nueva categoría"
+
+#. module: real_estate_christian
+#: model_terms:ir.actions.act_window,help:real_estate_christian.real_estate_property_action
+msgid "Create anew property"
+msgstr "Crear una nueva propiedad"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_category__create_uid
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__create_uid
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_offer__create_uid
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__create_uid
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_category__create_date
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__create_date
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_offer__create_date
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__create_date
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_offer__date
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__deposit
+msgid "Deposit"
+msgstr "Fianza"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_category__description
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_offer__notes
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_category__display_name
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__display_name
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_offer__display_name
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__display_name
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: real_estate_christian
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_visit__state__done
+msgid "Done"
+msgstr "Realizada"
+
+#. module: real_estate_christian
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_contract__state__draft
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_offer__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_offer_view_form
+msgid "Draft offer"
+msgstr "Oferta en borrador"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__end_date
+msgid "End Date"
+msgstr "Fecha de fin"
+
+#. module: real_estate_christian
+#: model_terms:ir.actions.act_window,help:real_estate_christian.real_estate_category_action
+msgid ""
+"Fill in the details of the category yoy want to add, such as its name and "
+"decription"
+msgstr ""
+"Rellena los detalles de la categoría que quieres añadir, como su nombre y "
+"descripción"
+
+#. module: real_estate_christian
+#: model_terms:ir.actions.act_window,help:real_estate_christian.real_estate_property_action
+msgid ""
+"Fill in the details of the property yoy want to add, such as its name and "
+"decription"
+msgstr ""
+"Rellena los detalles de la propiedad que quieres añadir, como su nombre y "
+"descripción"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_contract_view_form
+msgid "Finish"
+msgstr "Finalizar"
+
+#. module: real_estate_christian
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_contract__state__finished
+msgid "Finished"
+msgstr "Finalizado"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_category__id
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__id
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_offer__id
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__id
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__id
+msgid "ID"
+msgstr "ID"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_form_view
+msgid "Information"
+msgstr "Información"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_category__write_uid
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__write_uid
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_offer__write_uid
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__write_uid
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_category__write_date
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__write_date
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_offer__write_date
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__write_date
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: real_estate_christian
+#: model:res.groups,name:real_estate_christian.group_real_estate_manager
+msgid "Manager"
+msgstr "Gestor"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_category__name
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__name
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: real_estate_christian
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_visit__state__new
+msgid "New"
+msgstr "Nueva"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_view_form
+msgid "New visit"
+msgstr "Nueva visita"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_offer_view_form
+msgid "Offer accepted"
+msgstr "Oferta aceptada"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_offer_view_form
+msgid "Offer rejected"
+msgstr "Oferta rechazada"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_offer_view_form
+msgid "Offer sent"
+msgstr "Oferta enviada"
+
+#. module: real_estate_christian
+#: model:ir.actions.act_window,name:real_estate_christian.real_estate_offer_action
+#: model:ir.ui.menu,name:real_estate_christian.real_estate_menu_offers
+msgid "Offers"
+msgstr "Ofertas"
+
+#. module: real_estate_christian
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_visit__state__planned
+msgid "Planned"
+msgstr "Planificada"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__price
+msgid "Price"
+msgstr "Precio"
+
+#. module: real_estate_christian
+#: model:ir.actions.act_window,name:real_estate_christian.real_estate_property_action
+#: model:ir.ui.menu,name:real_estate_christian.real_estate_menu_properties
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_list_view
+msgid "Properties"
+msgstr "Propiedades"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__property_id
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_offer__property_id
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__property_id
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_form_view
+msgid "Property"
+msgstr "Propiedad"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_form_view
+msgid "Property Name"
+msgstr "Nombre de la propiedad"
+
+#. module: real_estate_christian
+#: model:ir.module.category,name:real_estate_christian.module_category_real_estate
+#: model:ir.ui.menu,name:real_estate_christian.real_estate_menu_root
+#: model:res.groups.privilege,name:real_estate_christian.res_groups_privilege_real_estate
+msgid "Real Estate"
+msgstr "Inmobiliaria"
+
+#. module: real_estate_christian
+#: model:ir.model,name:real_estate_christian.model_real_estate_category
+msgid "Real Estate Category"
+msgstr "Categoría Inmobiliaria"
+
+#. module: real_estate_christian
+#: model:ir.model,name:real_estate_christian.model_real_estate_contract
+msgid "Real Estate Contract"
+msgstr "Contrato Inmobiliario"
+
+#. module: real_estate_christian
+#: model:ir.model,name:real_estate_christian.model_real_estate_offer
+msgid "Real Estate Offer"
+msgstr "Oferta Inmobiliaria"
+
+#. module: real_estate_christian
+#: model:ir.model,name:real_estate_christian.model_real_estate_property
+msgid "Real Estate Property"
+msgstr "Propiedad Inmobiliaria"
+
+#. module: real_estate_christian
+#: model:res.groups,comment:real_estate_christian.group_real_estate_manager
+#: model:res.groups,comment:real_estate_christian.group_real_estate_user
+msgid "Real Estate User Group"
+msgstr "Grupo de Usuarios de Inmobiliaria"
+
+#. module: real_estate_christian
+#: model:ir.model,name:real_estate_christian.model_real_estate_visit
+msgid "Real Estate Visit"
+msgstr "Visita Inmobiliaria"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__reference
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: real_estate_christian
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_offer__state__rejected
+msgid "Rejected"
+msgstr "Rechazada"
+
+#. module: real_estate_christian
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_contract__type__rent
+msgid "Rent"
+msgstr "Alquiler"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_form_view
+msgid "Reserve"
+msgstr "Reservar"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_form_view
+msgid "Reserved"
+msgstr "Reservada"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__user_id
+msgid "Salesperson"
+msgstr "Comercial"
+
+#. module: real_estate_christian
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_contract__type__sell
+msgid "Sell"
+msgstr "Venta"
+
+#. module: real_estate_christian
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_offer__state__sent
+msgid "Sent"
+msgstr "Enviada"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__init_date
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__state
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_offer__state
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__state
+msgid "State"
+msgstr "Estado"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__tenant_id
+msgid "Tenant"
+msgstr "Inquilino"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_contract__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: real_estate_christian
+#: model:res.groups,name:real_estate_christian.group_real_estate_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_view_form
+msgid "Visit cancelled"
+msgstr "Visita cancelada"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_view_form
+msgid "Visit done"
+msgstr "Visita realizada"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_view_form
+msgid "Visit planned"
+msgstr "Visita planificada"
+
+#. module: real_estate_christian
+#: model:ir.actions.act_window,name:real_estate_christian.real_estate_visit_action
+#: model:ir.ui.menu,name:real_estate_christian.real_estate_menu_visits
+msgid "Visits"
+msgstr "Visitas"
+
+#. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__user_id
+msgid "user"
+msgstr "usuario"

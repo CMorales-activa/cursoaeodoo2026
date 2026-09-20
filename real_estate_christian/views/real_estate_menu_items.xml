@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="real_estate_menu_root" name="Real Estate"/>
-    <menuitem id="real_estate_menu_properties" name="Properties" parent="real_estate_menu_root" action="real_estate_property_action"/>
-    <menuitem id="real_estate_menu_visits" name="Visits" parent="real_estate_menu_root" action="real_estate_visit_action"/>
+        <menuitem id="real_estate_menu_properties" name="Properties" parent="real_estate_menu_root" action="real_estate_property_action"/>
+        <menuitem id="real_estate_menu_visits" name="Visits" parent="real_estate_menu_root" action="real_estate_visit_action"/>
+        <menuitem id="real_estate_menu_categories" name="Categories" parent="real_estate_menu_root" action="real_estate_category_action"/>
+        <menuitem id="real_estate_menu_offers" name="Offers" parent="real_estate_menu_root" action="real_estate_offer_action"/>
+        <menuitem id="real_estate_menu_contracts" name="Contracts" parent="real_estate_menu_root" action="real_estate_contract_action"/>
+
 </odoo>

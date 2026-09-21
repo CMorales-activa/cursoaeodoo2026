@@ -31,7 +31,7 @@
                         <field name="property_id"/>
                         <field name="user_id"/>
                     </group>
-                    <group>    
+                    <group>
                         <field name="date"/>
                         <field name="contact_id"/>
                     </group>
@@ -40,9 +40,106 @@
         </field>
     </record>
 
+    <record id="real_estate_visit_view_search" model="ir.ui.view">
+        <field name="name">real.estate.visit.search</field>
+        <field name="model">real.estate.visit</field>
+        <field name="arch" type="xml">
+            <search string="Search Visits">
+                <field name="property_id" string="Property"/>
+                <field name="contact_id" string="Contact"/>
+                <field name="user_id" string="Salesperson"/>
+                <field name="date"/>
+                <filter name="filter_new" string="New" domain="[('state', '=', 'new')]"/>
+                <filter name="filter_planned" string="Planned" domain="[('state', '=', 'planned')]"/>
+                <filter name="filter_done" string="Done" domain="[('state', '=', 'done')]"/>
+                <filter name="filter_cancelled" string="Cancelled" domain="[('state', '=', 'cancelled')]"/>
+                <separator/>
+                <filter name="filter_my_visits" string="My Visits" domain="[('user_id', '=', uid)]"/>
+                <filter name="filter_today" string="Today"
+                    domain="[('date', '&gt;=', context_today().strftime('%Y-%m-%d 00:00:00')),
+                             ('date', '&lt;=', context_today().strftime('%Y-%m-%d 23:59:59'))]"/>
+                <separator/>
+                <filter name="group_by_property" string="Property" context="{'group_by': 'property_id'}"/>
+                <filter name="group_by_state" string="State" context="{'group_by': 'state'}"/>
+                <filter name="group_by_user" string="Salesperson" context="{'group_by': 'user_id'}"/>
+                <filter name="group_by_date" string="Date" context="{'group_by': 'date:month'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="real_estate_visit_view_kanban" model="ir.ui.view">
+        <field name="name">real.estate.visit.kanban</field>
+        <field name="model">real.estate.visit</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" records_draggable="false">
+                <field name="state"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <strong><field name="property_id"/></strong>
+                            </div>
+                            <div>
+                                <field name="contact_id"/>
+                            </div>
+                            <div>
+                                <field name="date"/>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <field name="state" widget="label_selection"
+                                        options="{'classes': {'new': 'default', 'planned': 'info', 'done': 'success', 'cancelled': 'danger'}}"/>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <field name="user_id" widget="many2one_avatar_user"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="real_estate_visit_view_calendar" model="ir.ui.view">
+        <field name="name">real.estate.visit.calendar</field>
+        <field name="model">real.estate.visit</field>
+        <field name="arch" type="xml">
+            <calendar string="Visits" date_start="date" color="user_id" mode="month" event_open_popup="true">
+                <field name="property_id"/>
+                <field name="contact_id"/>
+                <field name="state"/>
+                <field name="user_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="real_estate_visit_view_pivot" model="ir.ui.view">
+        <field name="name">real.estate.visit.pivot</field>
+        <field name="model">real.estate.visit</field>
+        <field name="arch" type="xml">
+            <pivot string="Visits Analysis">
+                <field name="property_id" type="row"/>
+                <field name="state" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="real_estate_visit_view_graph" model="ir.ui.view">
+        <field name="name">real.estate.visit.graph</field>
+        <field name="model">real.estate.visit</field>
+        <field name="arch" type="xml">
+            <graph string="Visits Analysis" type="bar">
+                <field name="state"/>
+            </graph>
+        </field>
+    </record>
+
     <record id="real_estate_visit_action" model="ir.actions.act_window">
         <field name="name">Visits</field>
         <field name="res_model">real.estate.visit</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,kanban,calendar,pivot,graph</field>
+        <field name="search_view_id" ref="real_estate_visit_view_search"/>
+        <field name="context">{'search_default_filter_new': 1}</field>
     </record>
 </odoo>

@@ -15,6 +15,12 @@ class RealEstateProperty(models.Model):
         string="Salesperson",
     )
     category_id = fields.Many2one('real.estate.category', string='Category')
+    stage = fields.Selection([
+        ('new', 'New'),
+        ('offer_received', 'Offer Received'),
+        ('offer_accepted', 'Offer Accepted'),
+        ('sold', 'Sold'),
+    ], string='Stage', default='new')
 
     def action_reserve(self):
         self.availability = False

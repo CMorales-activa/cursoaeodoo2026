@@ -21,7 +21,7 @@
             <header>
                 <button name="action_new" string="New visit" invisible="state not in ('done', 'cancelled')" type="object" class="btn-primary"/>
                 <button name="action_done" string="Visit done" invisible="state != 'planned'" type="object" class="btn-primary"/>
-                <button name="action_plan" string="Visit planned" invisible="state != 'planned'" type="object" class="btn-primary"/>
+                <button name="action_plan" string="Visit planned" invisible="state != 'new'" type="object" class="btn-primary"/>
                 <button name="action_cancel" string="Visit cancelled" invisible="state in ('cancelled', 'done')" type="object" class="btn-primary"/>
                 <field name="state" options="{'clickable': True}" widget="statusbar"/>
             </header>
@@ -34,6 +34,8 @@
                     <group>
                         <field name="date"/>
                         <field name="contact_id"/>
+                        <field name="contact_phone"/>
+                        <field name="contact_email"/>
                     </group>
                 </sheet>
             </form>

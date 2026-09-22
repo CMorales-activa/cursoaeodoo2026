@@ -21,15 +21,16 @@
         <field name="arch" type="xml">
             <form>
             <header>
-                <button name="action_draft" string="Draft offer" invisible="state != 'draft'" type="object" class="btn-primary"/>
-                <button name="action_sent" string="Offer sent" invisible="state != 'sent'" type="object" class="btn-primary"/>
-                <button name="action_accepted" string="Offer accepted" invisible="state != 'accepted'" type="object" class="btn-primary"/>
+                <button name="action_draft" string="Draft offer" invisible="state == 'draft'" type="object" class="btn-primary"/>
+                <button name="action_sent" string="Offer sent" invisible="state != 'draft'" type="object" class="btn-primary"/>
+                <button name="action_accepted" string="Offer accepted" invisible="state != 'sent'" type="object" class="btn-primary"/>
                 <button name="action_rejected" string="Offer rejected" invisible="state in ('rejected', 'accepted')" type="object" class="btn-primary"/>
                 <field name="state" options="{'clickable': True}" widget="statusbar"/>
             </header>
                 <sheet>
                     <group>
-                        <field name="property_id"/>
+                        <field name="property_id" domain="[('availability', '=', True)]"/>
+                        <field name="property_user_id"/>
                         <field name="buyer_id"/>
                     </group>
                     <group>    
@@ -43,9 +44,20 @@
         </field>
     </record>
 
+    <record id="real_estate_offer_view_graph" model="ir.ui.view">
+        <field name="name">real.estate.offer.graph</field>
+        <field name="model">real.estate.offer</field>
+        <field name="arch" type="xml">
+            <graph string="Offers Analysis">
+                <field name="state"/>
+                <field name="amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
     <record id="real_estate_offer_action" model="ir.actions.act_window">
         <field name="name">Offers</field>
         <field name="res_model">real.estate.offer</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,graph</field>
     </record>
 </odoo>

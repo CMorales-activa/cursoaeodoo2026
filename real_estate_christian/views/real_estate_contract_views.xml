@@ -24,6 +24,7 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button name="action_draft" string="Reset to Draft" invisible="state == 'draft'" type="object"/>
                     <button name="action_activate" string="Activate" invisible="state != 'draft'" type="object" class="btn-primary"/>
                     <button name="action_finish" string="Finish" invisible="state != 'active'" type="object" class="btn-primary"/>
                     <button name="action_cancel" string="Cancel" invisible="state in ('finished', 'canceled')" type="object"/>
@@ -42,6 +43,10 @@
                             <field name="end_date"/>
                             <field name="amount"/>
                             <field name="deposit"/>
+                            <field name="has_deposit"/>
+                            <field name="duration_days"/>
+                            <field name="days_to_end"/>
+                            <field name="days_in_progress"/>
                         </group>
                     </group>
                 </sheet>

@@ -18,6 +18,8 @@ class RealEstateOffer(models.Model):
             ('rejected', 'Rejected'),
         ], string='State', default='draft')
     notes = fields.Text(string='Description')
+    property_user_id = fields.Many2one(
+        related='property_id.user_id', string='Property Responsible')
 
     def action_draft(self):
         self.state = "draft"

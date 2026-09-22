@@ -9,3 +9,5 @@ access_real_estate_offer_user,real.estate.offer_user,model_real_estate_offer,bas
 access_real_estate_offer_manager,real.estate.offer_manager,model_real_estate_offer,group_real_estate_manager,1,1,1,1
 access_real_estate_contract_user,real.estate.contract_user,model_real_estate_contract,base.group_user,1,1,1,0
 access_real_estate_contract_manager,real.estate.contract_manager,model_real_estate_contract,group_real_estate_manager,1,1,1,1
+access_real_estate_property_stage_user,real.estate.property.stage_user,model_real_estate_property_stage,base.group_user,1,0,0,0
+access_real_estate_property_stage_manager,real.estate.property.stage_manager,model_real_estate_property_stage,group_real_estate_manager,1,1,1,1

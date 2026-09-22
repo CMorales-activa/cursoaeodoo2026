@@ -10,6 +10,8 @@
     'data': [
         'security/real_estate_security.xml',
         'security/ir.model.access.csv',
+        'data/real_estate_property_stage_data.xml',
+        'views/real_estate_property_stage_views.xml',
         'views/real_estate_property_views.xml',
         'views/real_estate_visit_views.xml',
         'views/real_estate_category_views.xml',

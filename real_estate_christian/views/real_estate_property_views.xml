@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
  
-    <record id="real_estate_property_action" model="ir.actions.act_window">
-        <field name="name">Properties</field>
-        <field name="res_model">real.estate.property</field>
-        <field name="view_mode">kanban,list,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-            Create anew property
-            </p>
-            <p>
-            Fill in the details of the property yoy want to add, such as its name and decription
-            </p>
-        </field>    
-    </record>
-
-
    <record id="real_estate_property_view_kanban" model="ir.ui.view">
         <field name="name">realestate.property.kanban</field>
         <field name="model">real.estate.property</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="stage" records_draggable="true">
-                <field name="stage"/>
+            <kanban default_group_by="stage_id" records_draggable="true">
+                <field name="stage_id"/>
                 <templates>
                     <t t-name="card">
                         <div class="oe_kanban_global_click">
@@ -62,7 +47,7 @@
                 <field name="availability" widget="boolean_toggle" optional="show"/>
                 <field name="user_id" widget="many2one_avatar_user" optional="show"/>
                 <field name="category_id" optional="show"/>
-                <field name="stage" optional="show"/>
+                <field name="stage_id" optional="show"/>
             </list>
         </field>
     </record>
@@ -74,6 +59,10 @@
             <form string="Property">
             <header>
                 <button name="action_reserve" string="Reserve" invisible="not availability" type="object" class="btn-primary"/>
+                <button name="action_create_visit" string="Create Visit" type="object"/>
+                <button name="action_create_offer" string="Create Offer" type="object"/>
+                <button name="action_accept_best_offer" string="Accept Best Offer" type="object"/>
+                <button name="action_delete_rejected_offers" string="Delete Rejected Offers" type="object"/>
             </header>
                 <sheet>
                 <widget name="web_ribbon" title="Reserved" invisible="availability" bg_color="text_bg_warning"/>
@@ -91,7 +80,7 @@
                         <group>
                             <field name="user_id" widget="many2one_avatar_user"/>
                             <field name="category_id"/>
-                            <field name="stage"/>
+                            <field name="stage_id"/>
                         </group>
                     </group>
                     <notebook>
@@ -104,5 +93,49 @@
         </field>
     </record>
 
+    <record id="real_estate_property_view_search" model="ir.ui.view">
+        <field name="name">real.estate.property.search</field>
+        <field name="model">real.estate.property</field>
+        <field name="arch" type="xml">
+            <search string="Search Properties">
+                <field name="name"
+                    filter_domain="['|', ('category_id.name', 'ilike', self), ('name', 'ilike', self)]"/>
+                <field name="reference"/>
+                <field name="category_id"/>
+                <filter name="filter_available" string="Available" domain="[('availability', '=', True)]"/>
+                <filter name="filter_reserved" string="Reserved" domain="[('availability', '=', False)]"/>
+                <separator/>
+                <filter name="group_by_stage" string="Stage" context="{'group_by': 'stage_id'}"/>
+                <filter name="group_by_category" string="Category" context="{'group_by': 'category_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="real_estate_property_view_pivot" model="ir.ui.view">
+        <field name="name">real.estate.property.pivot</field>
+        <field name="model">real.estate.property</field>
+        <field name="arch" type="xml">
+            <pivot string="Properties Analysis">
+                <field name="user_id" type="row"/>
+                <field name="category_id" type="col"/>
+                <field name="price" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="real_estate_property_action" model="ir.actions.act_window">
+        <field name="name">Properties</field>
+        <field name="res_model">real.estate.property</field>
+        <field name="view_mode">kanban,list,form,pivot</field>
+        <field name="search_view_id" ref="real_estate_property_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create anew property
+            </p>
+            <p>
+            Fill in the details of the property yoy want to add, such as its name and decription
+            </p>
+        </field>
+    </record>
 
 </odoo>

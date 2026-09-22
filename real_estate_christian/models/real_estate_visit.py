@@ -23,6 +23,8 @@ class RealEstateVisit(models.Model):
         comodel_name="res.users",
         string="user",
     )
+    contact_phone = fields.Char(related='contact_id.phone', string='Contact Phone')
+    contact_email = fields.Char(related='contact_id.email', string='Contact Email')
 
     def action_cancel(self):
         self.state = "cancelled"

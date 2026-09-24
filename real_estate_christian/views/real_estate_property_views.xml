@@ -48,6 +48,7 @@
                 <field name="user_id" widget="many2one_avatar_user" optional="show"/>
                 <field name="category_id" optional="show"/>
                 <field name="stage_id" optional="show"/>
+                <field name="next_visit_date"/>
             </list>
         </field>
     </record>
@@ -63,6 +64,7 @@
                 <button name="action_create_offer" string="Create Offer" type="object"/>
                 <button name="action_accept_best_offer" string="Accept Best Offer" type="object"/>
                 <button name="action_delete_rejected_offers" string="Delete Rejected Offers" type="object"/>
+                <button name="action_cancel_visits" string="Cancel visits" type="object"/>
             </header>
                 <sheet>
                 <widget name="web_ribbon" title="Reserved" invisible="availability" bg_color="text_bg_warning"/>
@@ -108,6 +110,16 @@
                                     <field name="priority" widget="priority" nolabel="1"/>
                                     <field name="date"/>
                                     <field name="user_id" domain="[('share', '=', False)]"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Offers">
+                            <field name="offer_ids">
+                                <list editable="bottom">
+                                    <field name="buyer_id"/>
+                                    <field name="amount"/>
+                                    <field name="date"/>
                                     <field name="state"/>
                                 </list>
                             </field>

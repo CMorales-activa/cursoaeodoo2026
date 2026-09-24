@@ -35,8 +35,8 @@
                         <group>
                             <field name="name"/>
                             <field name="type"/>
-                            <field name="property_id"/>
-                            <field name="tenant_id"/>
+                            <field name="property_id" domain="[('availability', '=', False)]"/>
+                            <field name="tenant_id" options="{'no_create': True}"/>
                         </group>
                         <group>
                             <field name="init_date"/>

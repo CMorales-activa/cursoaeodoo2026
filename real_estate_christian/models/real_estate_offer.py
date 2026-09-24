@@ -20,6 +20,9 @@ class RealEstateOffer(models.Model):
     notes = fields.Text(string='Description')
     property_user_id = fields.Many2one(
         related='property_id.user_id', string='Property Responsible')
+    category_id = fields.Many2one(
+        related='property_id.category_id', readonly=True
+    )
 
     def action_draft(self):
         self.state = "draft"
@@ -33,3 +36,13 @@ class RealEstateOffer(models.Model):
 
     def action_rejected(self):
         self.state = "rejected"
+
+    def action_create_contract(self):
+        self.ensure_one()
+        self.env['real.estate.contract'].create({
+            'name': self.property_id.name,
+            'property_id':self.property_id.id,
+            'tenant_id':self.buyer_id.id,
+            'type': 'sell',
+            'init_date':fields.Datetime.now(),
+        })

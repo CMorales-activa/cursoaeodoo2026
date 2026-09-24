@@ -87,6 +87,31 @@
                         <page string="Information">
                             <field string="Information" nolabel="1" name="description"/>
                         </page>
+                        <page string="Images">
+                            <field name="image_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="image" widget="image" class="oe_avatar"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Visits">
+                            <field name="visit_ids"
+                                context="{'list_view_ref': 'real_estate_christian.real_estate_visit_view_list_simple', 'default_user_id': user_id}"/>
+                        </page>
+                        <page string="Incidences">
+                            <field name="incidence_ids" context="{'default_user_id': user_id}">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="priority" widget="priority" nolabel="1"/>
+                                    <field name="date"/>
+                                    <field name="user_id" domain="[('share', '=', False)]"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
                     </notebook>
                 </sheet>
             </form>

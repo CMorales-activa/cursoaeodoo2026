@@ -25,6 +25,12 @@ class RealEstateVisit(models.Model):
     )
     contact_phone = fields.Char(related='contact_id.phone', string='Contact Phone')
     contact_email = fields.Char(related='contact_id.email', string='Contact Email')
+    priority = fields.Selection([
+        ('0', 'Normal'),
+        ('1', 'Good'),
+        ('2', 'Very Good'),
+        ('3', 'Excellent'),
+    ], string='Priority', default='0')
 
     def action_cancel(self):
         self.state = "cancelled"

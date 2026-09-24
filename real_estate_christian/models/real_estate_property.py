@@ -21,6 +21,12 @@ class RealEstateProperty(models.Model):
         default=lambda self: self.env['real.estate.property.stage'].search(
             [], order='sequence, id', limit=1),
     )
+    image_ids = fields.One2many(
+        'real.estate.property.image', 'property_id', string='Images')
+    visit_ids = fields.One2many(
+        'real.estate.visit', 'property_id', string='Visits')
+    incidence_ids = fields.One2many(
+        'real.estate.property.incidence', 'property_id', string='Incidences')
 
     def action_reserve(self):
         self.availability = False

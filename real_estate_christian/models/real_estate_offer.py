@@ -10,7 +10,8 @@ class RealEstateOffer(models.Model):
     buyer_id = fields.Many2one(
             comodel_name='res.partner', 
             string='Buyer')
-    amount = fields.Float(string="Amount")
+    amount = fields.Monetary(string="Amount")
+    currency_id = fields.Many2one('res.currency', string='Currency', default=lambda self: self.env.company.currency_id)
     date = fields.Datetime(string='Date')
     state = fields.Selection([
             ('draft', 'Draft'),

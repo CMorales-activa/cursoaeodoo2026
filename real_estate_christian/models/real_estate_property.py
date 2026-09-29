@@ -10,9 +10,16 @@ class RealEstateProperty(models.Model):
 
     name = fields.Char(string='Name', required=True)
     description = fields.Text(string='Description')
-    price = fields.Float(string="Price")
-    reference = fields.Char(string="Reference")
+    price = fields.Monetary(string="Price")
+    currency_id = fields.Many2one('res.currency', string='Currency', default=lambda self: self.env.company.currency_id)
+    reference = fields.Char(string="Reference", copy=False)
     availability = fields.Boolean(string="Availability", default=True)
+    active = fields.Boolean(default=True)
+    company_id = fields.Many2one('res.company',
+                                  string='Company',
+                                  default=lambda self: self.env.company)
+    internal_note = fields.Text(string='Internal Note',
+                                 company_dependent=True)
     user_id = fields.Many2one(
         'res.users',
         string="Salesperson",
@@ -124,3 +131,14 @@ class RealEstateProperty(models.Model):
             'amount': self.price,
             'state': 'draft',
         })
+
+    def action_open_visit_wizard(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Create Visits',
+            'res_model': 'real.estate.property.batch.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'default_property_id': self.id},
+        }

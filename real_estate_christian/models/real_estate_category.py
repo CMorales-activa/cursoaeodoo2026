@@ -7,3 +7,4 @@ class RealEstateCategory(models.Model):
 
     name = fields.Char(string='Name', required=True)
     description = fields.Text(string='Description')
+    active = fields.Boolean(default=True)

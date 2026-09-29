@@ -9,7 +9,7 @@ class RealEstateContract(models.Model):
             'UNIQUE(name)',
             'name must be unique',)
     
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(string='Name', required=True, copy=False)
     type = fields.Selection([
             ('sell', 'Sell'),
             ('rent', 'Rent'),
@@ -20,8 +20,9 @@ class RealEstateContract(models.Model):
                 string='Tenant')
     init_date = fields.Datetime(string='Start Date')
     end_date = fields.Datetime(string='End Date')
-    amount = fields.Float(string="Amount")
-    deposit = fields.Float(string="Deposit")
+    amount = fields.Monetary(string="Amount")
+    currency_id = fields.Many2one('res.currency', string='Currency', default=lambda self: self.env.company.currency_id)
+    deposit = fields.Monetary(string="Deposit")
     state = fields.Selection([
                 ('draft', 'Draft'),
                 ('active', 'Active'),

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="real_estate_property_stage_wizard_view_form" model="ir.ui.view">
+        <field name="name">real.estate.property.stage.wizard.form</field>
+        <field name="model">real.estate.property.stage.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Change Stage">
+                <group>
+                    <field name="stage_id"/>
+                    <field name="property_ids" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="action_apply" string="Apply" type="object" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="real_estate_property_stage_wizard_action" model="ir.actions.act_window">
+        <field name="name">Change Stage</field>
+        <field name="res_model">real.estate.property.stage.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_real_estate_property"/>
+        <field name="binding_view_types">list</field>
+    </record>
+</odoo>

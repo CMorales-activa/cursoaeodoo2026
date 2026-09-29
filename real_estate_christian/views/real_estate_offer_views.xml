@@ -8,7 +8,7 @@
                 <field name="property_id"/>
                 <field name="category_id"/>
                 <field name="buyer_id"/>
-                <field name="amount"/>
+                <field name="amount" widget="monetary"/>
                 <field name="date"/>
                 <field name="state"/>
                 <field name="notes"/>
@@ -43,7 +43,7 @@
                                 <strong><field name="date"/></strong>
                             </div>
                             <div>
-                                <field name="amount"/>
+                                <field name="amount" widget="monetary"/>
                             </div>
                             <div>
                                 <field name="buyer_id"/>
@@ -81,7 +81,7 @@
                         <field name="buyer_id"/>
                     </group>
                     <group>    
-                        <field name="amount"/>
+                        <field name="amount" widget="monetary"/>
                         <field name="date"/>
                         <field name="state"/>
                         <field name="notes"/>
@@ -97,7 +97,7 @@
         <field name="arch" type="xml">
             <graph string="Offers Analysis">
                 <field name="state"/>
-                <field name="amount" type="measure"/>
+                <field name="amount" type="measure" widget="monetary"/>
             </graph>
         </field>
     </record>
@@ -109,7 +109,7 @@
             <pivot string="Offers Analysis">
                 <field name="state" type="row"/>
                 <field name="property_id" type="col"/>
-                <field name="amount" type="measure"/>
+                <field name="amount" type="measure" widget="monetary"/>
             </pivot>
         </field>
     </record>

@@ -20,6 +20,8 @@
         'views/real_estate_offer_views.xml',
         'views/real_estate_contract_views.xml',
         'views/real_estate_menu_items.xml',
+        'wizard/real_estate_property_stage_wizard_views.xml',
+        'wizard/real_estate_visit_batch_wizard_views.xml',
     ],
     'application': True,
     'installable': True,

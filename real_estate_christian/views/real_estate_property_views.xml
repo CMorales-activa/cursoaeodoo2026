@@ -67,7 +67,15 @@
                 <button name="action_cancel_visits" string="Cancel visits" type="object"/>
             </header>
                 <sheet>
-                <widget name="web_ribbon" title="Reserved" invisible="availability" bg_color="text_bg_warning"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" class="oe_stat_button" name="action_view_visits" icon="fa-calendar">
+                            <field name="visit_count" widget="statinfo" string="Visits"/>
+                        </button>
+                        <button type="object" class="oe_stat_button" name="action_view_incidences" icon="fa-calendar">
+                            <field name="incidence_count" widget="statinfo" string="Incidences"/>
+                        </button>
+                    </div>
+                        <widget name="web_ribbon" title="Reserved" invisible="availability" bg_color="text_bg_warning"/>
                     <div class="oe_tittle">
                         <h1>
                             <field name="name" placeholder="Property Name"/>

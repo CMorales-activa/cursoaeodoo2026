@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class RealEstateVisit(models.Model):
@@ -9,7 +9,7 @@ class RealEstateVisit(models.Model):
         'real.estate.property', 
         string='Property', 
         required=True)
-    date = fields.Datetime(string='Date')
+    date = fields.Datetime(string='Date', default=fields.Datetime.now)
     contact_id = fields.Many2one(
         comodel_name='res.partner', 
         string='Contact')
@@ -23,8 +23,8 @@ class RealEstateVisit(models.Model):
         comodel_name="res.users",
         string="user",
     )
-    contact_phone = fields.Char(related='contact_id.phone', string='Contact Phone')
-    contact_email = fields.Char(related='contact_id.email', string='Contact Email')
+    contact_phone = fields.Char(string='Contact Phone')
+    contact_email = fields.Char(string='Contact Email')
     priority = fields.Selection([
         ('0', 'Normal'),
         ('1', 'Good'),
@@ -43,3 +43,15 @@ class RealEstateVisit(models.Model):
 
     def action_new(self):
         self.state = "new"
+
+    @api.onchange('contact_id')
+    def contact_changes(self):
+        self.contact_phone = self.contact_id.phone
+        self.contact_email = self.contact_id.email
+
+    def _cron_done_visits(self):
+        visits_to_done = self.env['real.estate.visit'].search([
+            ('state', '=', 'planned'),
+            ('date', '<', fields.Datetime.now()),
+        ])
+        visits_to_done.write({'state': 'done'})

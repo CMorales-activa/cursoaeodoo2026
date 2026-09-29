@@ -11,6 +11,7 @@
         'security/real_estate_security.xml',
         'security/ir.model.access.csv',
         'data/real_estate_property_stage_data.xml',
+        'data/ir_cron.xml',
         'views/real_estate_property_stage_views.xml',
         'views/real_estate_property_incidence_views.xml',
         'views/real_estate_property_views.xml',

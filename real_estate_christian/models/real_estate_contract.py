@@ -1,10 +1,14 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class RealEstateContract(models.Model):
     _name = 'real.estate.contract'
     _description = 'Real Estate Contract'
-
+    _name_unique = models.Constraint(
+            'UNIQUE(name)',
+            'name must be unique',)
+    
     name = fields.Char(string='Name', required=True)
     type = fields.Selection([
             ('sell', 'Sell'),
@@ -71,6 +75,13 @@ class RealEstateContract(models.Model):
             else:
                 record.days_in_progress = 0
 
+    @api.constrains('init_date', 'end_date')
+    def _validation_dates(self):
+        for record in self:
+            if (record.end_date and record.init_date and
+               record.end_date < record.init_date):
+                raise ValidationError(_("End date must be bigger tna init date"))
+    
     def action_draft(self):
         self.state = "draft"
 
@@ -82,3 +93,15 @@ class RealEstateContract(models.Model):
 
     def action_cancel(self):
         self.state = "canceled"
+
+    def _cron_finish_contracts(self):
+        contracts_to_finish = self.env['real.estate.contract'].search(
+            [('state', '=', 'active'),
+             ('end_date', '<', fields.Datetime.now())
+             ],
+        )
+        contracts_to_finish.write({'state': 'finished'})
+
+    @api.onchange('property_id')
+    def property_changes(self):
+        self.amount = self.property_id.price

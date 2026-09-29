@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 
 
 class RealEstateOffer(models.Model):
@@ -36,6 +37,12 @@ class RealEstateOffer(models.Model):
 
     def action_rejected(self):
         self.state = "rejected"
+
+    @api.constrains('amount')
+    def action_amount_change(self):
+        for record in self:
+            if record.amount < 0:
+                raise ValidationError(_("Amount can't be negative"))
 
     def action_create_contract(self):
         self.ensure_one()

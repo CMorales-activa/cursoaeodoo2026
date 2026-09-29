@@ -1,9 +1,12 @@
-from odoo import api, models, fields
+from odoo import api, models, fields, _
 
 
 class RealEstateProperty(models.Model):
     _name = 'real.estate.property'
     _description = 'Real Estate Property'
+    _reference_unique = models.Constraint(
+        'UNIQUE(reference)',
+        'reference must be unique',)
 
     name = fields.Char(string='Name', required=True)
     description = fields.Text(string='Description')
@@ -32,6 +35,21 @@ class RealEstateProperty(models.Model):
     )
     next_visit_date = fields.Datetime(
         string='Next Visit Date', compute='_compute_next_visit_date')
+    visit_count = fields.Integer(
+        string='Visits count', compute='_compute_visits_count_')
+    incidence_count = fields.Integer(
+        string='Incidence count', compute='_compute_incidence_count_')
+
+
+    @api.depends('visit_ids')
+    def _compute_visits_count_(self):
+        for record in self:
+            record.visit_count = len(record.visit_ids)
+
+    @api.depends('incidence_ids')
+    def _compute_incidence_count_(self):
+        for record in self:
+            record.incidence_count = len(record.incidence_ids)
 
     @api.depends('visit_ids.date', 'visit_ids.state')
     def _compute_next_visit_date(self):
@@ -54,6 +72,26 @@ class RealEstateProperty(models.Model):
             'user_id': self.user_id.id,
         })
 
+    def action_view_visits(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Visits',
+            'res_model': 'real.estate.visit',
+            'view_mode': 'list,form',
+            'domain': [('property_id', '=', self.id)],
+        }
+
+    def action_view_incidences(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Incidences',
+            'res_model': 'real.estate.property.incidence',
+            'view_mode': 'list,form',
+            'domain': [('property_id', '=', self.id)],
+        }
+    
     def action_accept_best_offer(self):
         self.ensure_one()
         best_offer = self.env['real.estate.offer'].search(

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="paperformat_realestate_property" model="report.paperformat">
+        <field name="name">Property Report Format</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_spacing">10</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_report_realestate_property" model="ir.actions.report">
+        <field name="name">Property Report</field>
+        <field name="model">real.estate.property</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">real_estate_christian.report_realestate_property</field>
+        <field name="report_file">real_estate_christian.report_realestate_property</field>
+        <field name="print_report_name">'Property - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_real_estate_property"/>
+        <field name="paperformat_id" ref="paperformat_realestate_property"/>
+    </record>
+
+    <template id="report_realestate_property">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 t-field="o.name"/>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <strong>Reference:</strong> <span t-field="o.reference"/>
+                            </div>
+                            <div class="col">
+                                <strong>Category:</strong> <span t-field="o.category_id.name"/>
+                            </div>
+                            <div class="col">
+                                <strong>Stage:</strong> <span t-field="o.stage_id.name"/>
+                            </div>
+                            <div class="col">
+                                <strong>Price:</strong> <span t-field="o.price"/>
+                            </div>
+                            <div class="col">
+                                <strong>Responsible:</strong> <span t-field="o.user_id.name"/>
+                            </div>
+                        </div>
+
+                        <h3>Description</h3>
+                        <p t-field="o.description"/>
+
+                        <h3>Images</h3>
+                        <table class="table">
+                            <tr t-foreach="o.image_ids" t-as="image">
+                                <td style="width: 80px;">
+                                    <img t-att-src="image_data_uri(image.image)" style="max-width: 80px;"/>
+                                </td>
+                                <td t-esc="image.name"/>
+                            </tr>
+                        </table>
+
+                        <h3>Visits</h3>
+                        <div t-if="not o.visit_ids" class="alert alert-warning">
+                            This property has no visits.
+                        </div>
+                        <table t-else="" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Visitor</th>
+                                    <th>Phone</th>
+                                    <th>State</th>
+                                </tr>
+                            </thead>
+                            <tr t-foreach="o.visit_ids" t-as="visit">
+                                <td><span t-field="visit.date"/></td>
+                                <td><span t-field="visit.contact_id.name"/></td>
+                                <td><span t-field="visit.contact_phone"/></td>
+                                <td><span t-field="visit.state"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

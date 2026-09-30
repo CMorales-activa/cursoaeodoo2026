@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="paperformat_realestate_contract" model="report.paperformat">
+        <field name="name">Contract Report Format</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_spacing">10</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_report_realestate_contract" model="ir.actions.report">
+        <field name="name">Contract Report</field>
+        <field name="model">real.estate.contract</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">real_estate_christian.report_realestate_contract</field>
+        <field name="report_file">real_estate_christian.report_realestate_contract</field>
+        <field name="print_report_name">'Contract - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_real_estate_contract"/>
+        <field name="paperformat_id" ref="paperformat_realestate_contract"/>
+    </record>
+
+    <template id="report_realestate_contract">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 t-field="o.name"/>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <strong>Property id:</strong> <span t-field="o.property_id"/>
+                            </div>
+                            <div class="col">
+                                <strong>Tenant id:</strong> <span t-field="o.tenant_id"/>
+                            </div>
+                            <div class="col">
+                                <strong>Type:</strong> <span t-field="o.type"/>
+                            </div>
+                            <div class="col">
+                                <strong>Init date:</strong> <span t-field="o.init_date"/>
+                            </div>
+                            <div class="col">
+                                <strong>End date:</strong> <span t-field="o.end_date"/>
+                            </div>
+                            <div class="col">
+                                <strong>Amount:</strong> <span t-field="o.amount"/>
+                            </div>
+                            <div class="col" t-if="o.type == 'rent'">
+                                <strong>Deposit:</strong> <span t-field="o.deposit"/>
+                            </div>
+                            <div class="col">
+                                <strong>State:</strong> <span t-field="o.state"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

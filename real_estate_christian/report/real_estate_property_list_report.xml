@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_report_realestate_property_simple" model="ir.actions.report">
+    <field name="name">Properties Summary</field>
+    <field name="model">real.estate.property</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">real_estate_christian.report_realestate_property_simple</field>
+    <field name="report_file">real_estate_christian.report_realestate_property_simple</field>
+    <field name="print_report_name">'Properties Summary'</field>
+    <field name="binding_model_id" ref="model_real_estate_property"/>
+    <field name="multi" eval="True"/>
+    </record>
+
+    <template id="report_realestate_property_simple">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Properties Summary</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Reference</th>
+                                <th>Price</th>
+                                <th>Stage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="docs" t-as="o">
+                                <td><span t-field="o.name"/></td>
+                                <td><span t-field="o.reference"/></td>
+                                <td><span t-field="o.price"/></td>
+                                <td><span t-field="o.stage_id.name"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

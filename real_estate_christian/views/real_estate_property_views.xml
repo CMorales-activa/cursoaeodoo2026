@@ -72,10 +72,10 @@
                         <button type="object" class="oe_stat_button" name="action_view_visits" icon="fa-calendar">
                             <field name="visit_count" widget="statinfo" string="Visits"/>
                         </button>
-                        <button type="object" class="oe_stat_button" name="action_view_incidences" icon="fa-calendar">
+                        <button type="object" class="oe_stat_button" name="action_view_incidences" icon="fa-wrench">
                             <field name="incidence_count" widget="statinfo" string="Incidences"/>
                         </button>
-                        <button type="object" class="oe_stat_button" name="action_view_contracts" icon="fa-calendar">
+                        <button type="object" class="oe_stat_button" name="action_view_contracts" icon="fa-file-text-o">
                             <field name="contract_count" widget="statinfo" string="Contracts"/>
                         </button>
                     </div>

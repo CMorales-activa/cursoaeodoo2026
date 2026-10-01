@@ -46,7 +46,10 @@ class RealEstateProperty(models.Model):
         string='Visits count', compute='_compute_visits_count_')
     incidence_count = fields.Integer(
         string='Incidence count', compute='_compute_incidence_count_')
-
+    contract_ids = fields.One2many(
+        'real.estate.contract', 'property_id', string='Contracts')
+    contract_count = fields.Integer(
+        string='Contract count', compute='_compute_contract_count_')
 
     @api.depends('visit_ids')
     def _compute_visits_count_(self):
@@ -57,6 +60,11 @@ class RealEstateProperty(models.Model):
     def _compute_incidence_count_(self):
         for record in self:
             record.incidence_count = len(record.incidence_ids)
+
+    @api.depends('contract_ids')
+    def _compute_contract_count_(self):
+        for record in self:
+            record.contract_count = len(record.contract_ids)
 
     @api.depends('visit_ids.date', 'visit_ids.state')
     def _compute_next_visit_date(self):
@@ -98,7 +106,17 @@ class RealEstateProperty(models.Model):
             'view_mode': 'list,form',
             'domain': [('property_id', '=', self.id)],
         }
-    
+
+    def action_view_contracts(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Contracts',
+            'res_model': 'real.estate.contract',
+            'view_mode': 'list,form',
+            'domain': [('property_id', '=', self.id)],
+        }
+
     def action_accept_best_offer(self):
         self.ensure_one()
         best_offer = self.env['real.estate.offer'].search(

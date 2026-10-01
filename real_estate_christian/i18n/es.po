@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-30 15:48+0000\n"
-"PO-Revision-Date: 2026-09-30 15:48+0000\n"
+"POT-Creation-Date: 2026-10-01 14:51+0000\n"
+"PO-Revision-Date: 2026-10-01 14:51+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,11 @@ msgid "'Contract - %s' % (object.name)"
 msgstr "'Contrato - %s' % (object.name)"
 
 #. module: real_estate_christian
+#: model:ir.actions.report,print_report_name:real_estate_christian.action_report_realestate_offer
+msgid "'Offer - %s' % (object.property_id.name)"
+msgstr "'Oferta - %s' % (object.property_id.name)"
+
+#. module: real_estate_christian
 #: model:ir.actions.report,print_report_name:real_estate_christian.action_report_realestate_property_simple
 msgid "'Properties Summary'"
 msgstr "'Resumen de Propiedades'"
@@ -32,13 +37,24 @@ msgstr "'Propiedad - %s' % (object.name)"
 
 #. module: real_estate_christian
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.report_realestate_contract
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.report_realestate_offer
 msgid "<strong>Amount:</strong>"
 msgstr "<strong>Importe:</strong>"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.report_realestate_offer
+msgid "<strong>Buyer id:</strong>"
+msgstr "<strong>Comprador:</strong>"
 
 #. module: real_estate_christian
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.report_realestate_property
 msgid "<strong>Category:</strong>"
 msgstr "<strong>Categoría:</strong>"
+
+#. module: real_estate_christian
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.report_realestate_offer
+msgid "<strong>Date:</strong>"
+msgstr "<strong>Fecha:</strong>"
 
 #. module: real_estate_christian
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.report_realestate_contract
@@ -62,6 +78,7 @@ msgstr "<strong>Precio:</strong>"
 
 #. module: real_estate_christian
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.report_realestate_contract
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.report_realestate_offer
 msgid "<strong>Property id:</strong>"
 msgstr "<strong>Propiedad:</strong>"
 
@@ -82,6 +99,7 @@ msgstr "<strong>Etapa:</strong>"
 
 #. module: real_estate_christian
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.report_realestate_contract
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.report_realestate_offer
 msgid "<strong>State:</strong>"
 msgstr "<strong>Estado:</strong>"
 
@@ -133,6 +151,7 @@ msgstr "El importe no puede ser negativo"
 #. module: real_estate_christian
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_property_stage_wizard_view_form
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_batch_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_stage_wizard_view_form
 msgid "Apply"
 msgstr "Aplicar"
 
@@ -160,6 +179,7 @@ msgstr "Comprador"
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_contract_view_form
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_property_stage_wizard_view_form
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_batch_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_stage_wizard_view_form
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -176,6 +196,7 @@ msgstr "Cancelado"
 #. module: real_estate_christian
 #: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_property_incidence__state__cancelled
 #: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_visit__state__cancelled
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_visit_stage_wizard__state__cancelled
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_view_form
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_view_search
 msgid "Cancelled"
@@ -198,7 +219,9 @@ msgstr "Categoría"
 
 #. module: real_estate_christian
 #: model:ir.actions.act_window,name:real_estate_christian.real_estate_property_stage_wizard_action
+#: model:ir.actions.act_window,name:real_estate_christian.real_estate_visit_stage_wizard_action
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_property_stage_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_stage_wizard_view_form
 msgid "Change Stage"
 msgstr "Cambiar Etapa"
 
@@ -234,8 +257,15 @@ msgid "Contract Report"
 msgstr "Informe de Contrato"
 
 #. module: real_estate_christian
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__contract_count
+msgid "Contract count"
+msgstr "Nº de contratos"
+
+#. module: real_estate_christian
 #: model:ir.actions.act_window,name:real_estate_christian.real_estate_contract_action
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__contract_ids
 #: model:ir.ui.menu,name:real_estate_christian.real_estate_menu_contracts
+#: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_form_view
 msgid "Contracts"
 msgstr "Contratos"
 
@@ -286,6 +316,7 @@ msgstr "Crear contrato"
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property_stage__create_uid
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property_stage_wizard__create_uid
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__create_uid
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit_stage_wizard__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
@@ -300,6 +331,7 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property_stage__create_date
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property_stage_wizard__create_date
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__create_date
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit_stage_wizard__create_date
 msgid "Created on"
 msgstr "Creado el"
 
@@ -370,11 +402,13 @@ msgstr "Descripción"
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property_stage__display_name
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property_stage_wizard__display_name
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__display_name
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit_stage_wizard__display_name
 msgid "Display Name"
 msgstr "Nombre para mostrar"
 
 #. module: real_estate_christian
 #: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_visit__state__done
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_visit_stage_wizard__state__done
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_view_search
 msgid "Done"
 msgstr "Realizada"
@@ -470,6 +504,7 @@ msgstr "Alta"
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property_stage__id
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property_stage_wizard__id
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__id
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit_stage_wizard__id
 msgid "ID"
 msgstr "ID"
 
@@ -530,6 +565,7 @@ msgstr "Nota Interna"
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property_stage__write_uid
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property_stage_wizard__write_uid
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__write_uid
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit_stage_wizard__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
@@ -544,6 +580,7 @@ msgstr "Última actualización por"
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property_stage__write_date
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property_stage_wizard__write_date
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__write_date
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit_stage_wizard__write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
 
@@ -581,6 +618,7 @@ msgstr "Nombre"
 #. module: real_estate_christian
 #: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_property_incidence__state__new
 #: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_visit__state__new
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_visit_stage_wizard__state__new
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_view_search
 msgid "New"
 msgstr "Nueva"
@@ -599,6 +637,11 @@ msgstr "Fecha Próxima Visita"
 #: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_visit__priority__0
 msgid "Normal"
 msgstr "Normal"
+
+#. module: real_estate_christian
+#: model:ir.actions.report,name:real_estate_christian.action_report_realestate_offer
+msgid "Offer Report"
+msgstr "Informe de Oferta"
 
 #. module: real_estate_christian
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_offer_view_form
@@ -636,6 +679,7 @@ msgstr "Teléfono"
 
 #. module: real_estate_christian
 #: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_visit__state__planned
+#: model:ir.model.fields.selection,name:real_estate_christian.selection__real_estate_visit_stage_wizard__state__planned
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_view_search
 msgid "Planned"
 msgstr "Planificada"
@@ -759,6 +803,11 @@ msgid "Real Estate Visit"
 msgstr "Visita Inmobiliaria"
 
 #. module: real_estate_christian
+#: model:ir.model,name:real_estate_christian.model_real_estate_visit_stage_wizard
+msgid "Real Estate Visit Wizard"
+msgstr "Asistente de Visita Inmobiliaria"
+
+#. module: real_estate_christian
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__reference
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.report_realestate_property_simple
 msgid "Reference"
@@ -861,6 +910,7 @@ msgstr "Fecha de inicio"
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_offer__state
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property_incidence__state
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit__state
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit_stage_wizard__state
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_view_search
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.report_realestate_property
 msgid "State"
@@ -924,6 +974,7 @@ msgstr "Visitante"
 #. module: real_estate_christian
 #: model:ir.actions.act_window,name:real_estate_christian.real_estate_visit_action
 #: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_property__visit_ids
+#: model:ir.model.fields,field_description:real_estate_christian.field_real_estate_visit_stage_wizard__visit_ids
 #: model:ir.ui.menu,name:real_estate_christian.real_estate_menu_visits
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_form_view
 #: model_terms:ir.ui.view,arch_db:real_estate_christian.real_estate_visit_view_calendar

@@ -25,6 +25,8 @@
         'report/real_estate_property_report.xml',
         'report/real_estate_property_list_report.xml',
         'report/real_estate_contract_report.xml',
+        'wizard/real_estate_visit_state_wizard.xml',
+        'report/real_estate_offer_report.xml',
     ],
     'application': True,
     'installable': True,

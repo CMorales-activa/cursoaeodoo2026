@@ -75,6 +75,9 @@
                         <button type="object" class="oe_stat_button" name="action_view_incidences" icon="fa-calendar">
                             <field name="incidence_count" widget="statinfo" string="Incidences"/>
                         </button>
+                        <button type="object" class="oe_stat_button" name="action_view_contracts" icon="fa-calendar">
+                            <field name="contract_count" widget="statinfo" string="Contracts"/>
+                        </button>
                     </div>
                         <widget name="web_ribbon" title="Reserved" invisible="availability" bg_color="text_bg_warning"/>
                     <div class="oe_tittle">

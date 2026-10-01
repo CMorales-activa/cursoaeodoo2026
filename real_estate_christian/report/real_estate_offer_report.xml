@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="paperformat_realestate_offer" model="report.paperformat">
+        <field name="name">Offer Report Format</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_spacing">10</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_report_realestate_offer" model="ir.actions.report">
+        <field name="name">Offer Report</field>
+        <field name="model">real.estate.offer</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">real_estate_christian.report_realestate_offer</field>
+        <field name="report_file">real_estate_christian.report_realestate_offer</field>
+        <field name="print_report_name">'Offer - %s' % (object.property_id.name)</field>
+        <field name="binding_model_id" ref="model_real_estate_offer"/>
+        <field name="paperformat_id" ref="paperformat_realestate_offer"/>
+    </record>
+
+    <template id="report_realestate_offer">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="row mt-3">
+                            <div class="col">
+                                <strong>Property id:</strong> <span t-field="o.property_id"/>
+                            </div>
+                            <div class="col">
+                                <strong>Buyer id:</strong> <span t-field="o.buyer_id"/>
+                            </div>
+                            <div class="col">
+                                <strong>Date:</strong> <span t-field="o.date"/>
+                            </div>
+                            <div class="col">
+                                <strong>Amount:</strong> <span t-field="o.amount"/>
+                            </div>
+                            <div class="col">
+                                <strong>State:</strong> <span t-field="o.state"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
